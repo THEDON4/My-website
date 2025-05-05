@@ -2,190 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Job Application - The Don Creative Media</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MR.THE DON MEDIA Job Application</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1c1c1c, #3a3a3a);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
       color: #fff;
+      margin: 0;
+      padding: 20px;
     }
-
     .container {
       max-width: 700px;
-      margin: 60px auto;
-      padding: 40px;
-      background-color: #ffffff10;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
+      margin: auto;
+      background-color: #ffffff20;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     h2 {
       text-align: center;
-      color: #f33;
-      margin-bottom: 30px;
-      font-size: 28px;
+      color: #ffe600;
     }
-
     label {
       display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #f0f0f0;
+      margin: 10px 0 5px;
     }
-
-    input, textarea, select {
+    input, select, textarea {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
       border: none;
-      border-radius: 8px;
-      background: #f8f8f8;
-      font-size: 16px;
     }
-
-    input[type="file"] {
-      padding: 8px;
-      background: #fff;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
     button {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      background-color: #f33;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #c10000;
-    }
-
-    .note {
-      background-color: #ffc107;
+      background-color: #ffe600;
       color: #000;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
     }
-
-    #thanksMessage {
-      display: none;
-      margin-top: 30px;
-      padding: 20px;
-      background: #e0ffe0;
-      color: #003300;
-      border-radius: 8px;
+    button:hover {
+      background-color: #ffcc00;
     }
-
-    #thanksMessage a {
-      color: #d60000;
-      font-weight: bold;
+    .note {
+      font-size: 14px;
+      color: #ffc;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <h2>Apply for a Job at The Don Creative Media</h2>
+    <h2>MR.THE DON MEDIA - Job Application Form</h2>
+    <form action="https://formspree.io/f/yourformid" method="POST" onsubmit="return validateForm()">
 
-    <form id="jobForm" action="https://formspree.io/f/xjkwwyvn" method="POST" enctype="multipart/form-data" onsubmit="return showThanks()">
-      
       <label for="name">Full Name</label>
-      <input type="text" name="name" required>
+      <input type="text" id="name" name="name" required>
 
-      <label for="email">Email (Use the one used to subscribe to our YouTube Channel)</label>
-      <input type="email" name="email" required placeholder="example@gmail.com">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" name="phone" pattern="[0-9]{10,13}" required placeholder="07XXXXXXXX">
+      <label for="phone">Phone Number (10-15 digits)</label>
+      <input type="tel" id="phone" name="phone" pattern="^[0-9]{10,15}$" required>
 
-      <label for="position">Position Applying For</label>
-      <select name="position" required>
+      <label for="region">Which region do you currently live in?</label>
+      <input type="text" id="region" name="region" required>
+
+      <label for="district">Which district do you live in?</label>
+      <input type="text" id="district" name="district" required>
+
+      <label for="age">Your Age</label>
+      <input type="number" id="age" name="age" min="18" max="65" required>
+
+      <label for="citizen">Are you a Tanzanian citizen?</label>
+      <select id="citizen" name="citizen" required>
+        <option value="">-- Select --</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label for="position">Position You're Applying For</label>
+      <select id="position" name="position" required>
         <option value="">-- Select Position --</option>
-
-        <optgroup label="🎬 Media & Content">
-          <option value="Video Editor">Video Editor</option>
-          <option value="Graphics Designer">Graphics Designer</option>
-          <option value="Script Writer">Script Writer</option>
-          <option value="Social Media Manager">Social Media Manager</option>
+        <optgroup label="Media & Content">
+          <option>Video Editor</option>
+          <option>Graphics Designer</option>
+          <option>Script Writer</option>
+          <option>Social Media Manager</option>
         </optgroup>
-
-        <optgroup label="💻 ICT & Web">
-          <option value="Web Developer">Web Developer</option>
-          <option value="SEO Expert">SEO Expert</option>
-          <option value="System Admin">System Admin</option>
-          <option value="Programmer">Programmer</option>
+        <optgroup label="ICT & Web">
+          <option>Web Developer</option>
+          <option>SEO Expert</option>
+          <option>System Admin</option>
+          <option>Programmer</option>
         </optgroup>
-
-        <optgroup label="🗃️ Admin & HR">
-          <option value="Secretary">Secretary</option>
-          <option value="HR Assistant">HR Assistant</option>
-          <option value="Office Admin">Office Admin</option>
+        <optgroup label="Admin & HR">
+          <option>Secretary</option>
+          <option>HR Assistant</option>
+          <option>Office Admin</option>
         </optgroup>
-
-        <optgroup label="📢 Marketing & Sales">
-          <option value="Field Marketer">Field Marketer</option>
-          <option value="Digital Ads Expert">Digital Ads Expert</option>
-          <option value="Sales Representative">Sales Representative</option>
+        <optgroup label="Marketing & Sales">
+          <option>Field Marketer</option>
+          <option>Digital Ads Expert</option>
+          <option>Sales Representative</option>
         </optgroup>
-
-        <optgroup label="📞 Customer Support">
-          <option value="Call Center Agent">Call Center Agent</option>
-          <option value="Online Chat Agent">Online Chat Agent</option>
+        <optgroup label="Customer Support">
+          <option>Call Center Agent</option>
+          <option>Online Chat Agent</option>
         </optgroup>
-
-        <optgroup label="🚚 Logistics & Support">
-          <option value="Office Runner">Office Runner</option>
-          <option value="Technician">Technician</option>
-          <option value="Cleaner">Cleaner</option>
+        <optgroup label="Logistics & Support">
+          <option>Office Runner</option>
+          <option>Technician</option>
+          <option>Cleaner</option>
         </optgroup>
       </select>
 
-      <label for="cv">Upload Your CV (PDF)</label>
-<input type="file" name="cv" accept=".pdf" required>
+      <label for="education">Highest Level of Education</label>
+      <input type="text" id="education" name="education" required>
 
-<label for="certificates">Upload Certificates (PDF)</label>
-<input type="file" name="certificates" accept=".pdf" required>
+      <label for="experience">Briefly describe your work experience or skills</label>
+      <textarea id="experience" name="experience" rows="4" required></textarea>
 
-<label for="cover_letter">Upload Cover Letter (PDF)</label>
-<input type="file" name="cover_letter" accept=".pdf" required>
+      <label for="tools">Do you have working tools (Laptop, Smartphone, Internet)?</label>
+      <textarea id="tools" name="tools" rows="2" required></textarea>
 
+      <label for="youtube_sub">Have you subscribed to our YouTube channel using this email?</label>
+      <select id="youtube_sub" name="youtube_sub" required>
+        <option value="">-- Select --</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No (Subscription Required)</option>
+      </select>
 
-      <div class="note">
-        <strong>NOTE:</strong> You must subscribe to our YouTube Channel using the email above before submitting this form.
-      </div>
+      <p class="note">To submit your application, you must be subscribed to our YouTube channel using the email you entered above.</p>
 
       <button type="submit">Submit Application</button>
     </form>
-
-    <div id="thanksMessage">
-      <h3>✅ Application Submitted!</h3>
-      <p>Thank you for applying at <strong>The Don Creative Media</strong>.</p>
-      <p>All interview invitations and hiring updates will be posted on our YouTube Channel.</p>
-      <p><a href="https://youtube.com/@mr.thedon?si=hEiYGZ-X-oU1XFm2" target="_blank">Click here to visit and subscribe now</a></p>
-    </div>
+    <p style="text-align:center; margin-top:20px;">Thank you for submitting your application. Updates regarding selection will be announced via our <a href="https://youtube.com/@mr.thedon?si=hEiYGZ-X-oU1XFm2" target="_blank" style="color: #ffe600;">YouTube Channel</a>.</p>
   </div>
-
   <script>
-    function showThanks() {
-      document.getElementById("jobForm").style.display = "none";
-      document.getElementById("thanksMessage").style.display = "block";
-      return true; // allow form to be submitted
+    function validateForm() {
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const youtube = document.getElementById('youtube_sub').value;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phonePattern = /^[0-9]{10,15}$/;
+
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+      if (!phonePattern.test(phone)) {
+        alert('Phone number must be 10 to 15 digits.');
+        return false;
+      }
+      if (youtube !== 'Yes') {
+        alert('You must subscribe to our YouTube channel to submit your application.');
+        return false;
+      }
+      return true;
     }
   </script>
-
 </body>
 </html>
