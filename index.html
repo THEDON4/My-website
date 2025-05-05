@@ -1,70 +1,193 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr. The Don - IT & Motivation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #001F3F; /* Navy Blue */
-            color: white;
-            text-align: center;
-            padding: 50px;
-            animation: fadeIn 2s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .container {
-            max-width: 700px;
-            margin: auto;
-            background-color: #FF4F00; /* International Orange */
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
-            animation: slideIn 1.5s ease-in-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        h1 {
-            color: white;
-            font-size: 36px;
-            text-transform: uppercase;
-        }
-        h2 {
-            color: #FFD700; /* Gold */
-            font-size: 24px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .quote {
-            font-style: italic;
-            color: #FFD700; /* Gold */
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Job Application - The Don Creative Media</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1c1c1c, #3a3a3a);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #ffffff10;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f33;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #f0f0f0;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background: #f8f8f8;
+      font-size: 16px;
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #f33;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c10000;
+    }
+
+    .note {
+      background-color: #ffc107;
+      color: #000;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    #thanksMessage {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: #e0ffe0;
+      color: #003300;
+      border-radius: 8px;
+    }
+
+    #thanksMessage a {
+      color: #d60000;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Mr. The Don</h1>
-        <h2>Mtaalamu wa IT & Motivation</h2>
-        <p>Karibu kwenye dunia yangu ya teknolojia na motisha. Mimi ni mtaalamu wa IT mwenye shauku kubwa ya kusaidia watu kupitia maarifa ya teknolojia na maneno ya motisha.</p>
-        <p>Kwa miaka mingi nimejifunza na kufanya kazi kwenye sekta ya teknolojia, kuhakikisha watu wanapata suluhisho bora za IT. Pia, napenda kushirikisha mawazo chanya ili kusaidia watu kufanikisha malengo yao.</p>
-        <p class="quote">"Usikate tamaa, safari ya mafanikio huanza na hatua moja."</p>
+
+  <div class="container">
+    <h2>Apply for a Job at The Don Creative Media</h2>
+
+    <form id="jobForm" action="https://formspree.io/f/xjkwwyvn" method="POST" enctype="multipart/form-data" onsubmit="return showThanks()">
+      
+      <label for="name">Full Name</label>
+      <input type="text" name="name" required>
+
+      <label for="email">Email (Use the one used to subscribe to our YouTube Channel)</label>
+      <input type="email" name="email" required placeholder="example@gmail.com">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" pattern="[0-9]{10,13}" required placeholder="07XXXXXXXX">
+
+      <label for="position">Position Applying For</label>
+      <select name="position" required>
+        <option value="">-- Select Position --</option>
+
+        <optgroup label="🎬 Media & Content">
+          <option value="Video Editor">Video Editor</option>
+          <option value="Graphics Designer">Graphics Designer</option>
+          <option value="Script Writer">Script Writer</option>
+          <option value="Social Media Manager">Social Media Manager</option>
+        </optgroup>
+
+        <optgroup label="💻 ICT & Web">
+          <option value="Web Developer">Web Developer</option>
+          <option value="SEO Expert">SEO Expert</option>
+          <option value="System Admin">System Admin</option>
+          <option value="Programmer">Programmer</option>
+        </optgroup>
+
+        <optgroup label="🗃️ Admin & HR">
+          <option value="Secretary">Secretary</option>
+          <option value="HR Assistant">HR Assistant</option>
+          <option value="Office Admin">Office Admin</option>
+        </optgroup>
+
+        <optgroup label="📢 Marketing & Sales">
+          <option value="Field Marketer">Field Marketer</option>
+          <option value="Digital Ads Expert">Digital Ads Expert</option>
+          <option value="Sales Representative">Sales Representative</option>
+        </optgroup>
+
+        <optgroup label="📞 Customer Support">
+          <option value="Call Center Agent">Call Center Agent</option>
+          <option value="Online Chat Agent">Online Chat Agent</option>
+        </optgroup>
+
+        <optgroup label="🚚 Logistics & Support">
+          <option value="Office Runner">Office Runner</option>
+          <option value="Technician">Technician</option>
+          <option value="Cleaner">Cleaner</option>
+        </optgroup>
+      </select>
+
+      <label for="cv">Upload Your CV (PDF)</label>
+      <input type="file" name="cv" accept=".pdf" required>
+
+      <label for="certificates">Upload Certificates (PDF)</label>
+      <input type="file" name="certificates" accept=".pdf" required>
+
+      <label for="cover_letter">Upload Cover Letter (PDF)</label>
+      <input type="file" name="cover_letter" accept=".pdf" required>
+
+      <label for="message">Any Additional Information</label>
+      <textarea name="message" rows="4"></textarea>
+
+      <div class="note">
+        <strong>NOTE:</strong> You must subscribe to our YouTube Channel using the email above before submitting this form.
+      </div>
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <div id="thanksMessage">
+      <h3>✅ Application Submitted!</h3>
+      <p>Thank you for applying at <strong>The Don Creative Media</strong>.</p>
+      <p>All interview invitations and hiring updates will be posted on our YouTube Channel.</p>
+      <p><a href="https://youtube.com/@mr.thedon?si=hEiYGZ-X-oU1XFm2" target="_blank">Click here to visit and subscribe now</a></p>
     </div>
+  </div>
+
+  <script>
+    function showThanks() {
+      document.getElementById("jobForm").style.display = "none";
+      document.getElementById("thanksMessage").style.display = "block";
+      return true; // allow form to be submitted
+    }
+  </script>
+
 </body>
 </html>
